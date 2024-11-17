@@ -1,0 +1,67 @@
+% Полупрямое произведение групп
+
+\begin{theorem}
+	Следующие утверждения о группах $ G, N $ и $ H $ эквивалентны:
+	\begin{enumerate}
+		\item имеется расщепляющаяся точная последовательность
+		$$ \begin{tikzcd}
+		1 \ar{r}{} & N \ar{r} & G \ar{r} & H \ar{r} \ar[dashed, bend right=30]{l}[above]{s} & 1;
+		\end{tikzcd} $$
+		
+		\item в группе $ G $ имеются подгруппы $ N' $ и $ H' $, изоморфные $ N $ и $ H $, соответственно, 
+		такие, что $ N' \lhd G $, $ N'H' = G $ и $ N' \cap H' = \{e\} $;
+		
+		\item существует такой гомоморфизм $ \varphi \colon H \to \Aut{N} $,
+		что группа $ G $ изоморфна группе пар $ (n, h) \in N \times H $ с умножением заданным по правилу
+		$ (n_1, h_1)(n_2, h_2) = (n_1 \varphi(h_1)(n_2), h_1h_2) $. 
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	\hfill
+	
+	\textbf{[$ 1 \Rightarrow 2 $]}
+	
+	Пусть $ i \colon N \to G $ --- вложение и $ \pi \colon G \to H $ --- проекция из точной последовательности.
+	Положим $ N' = i(N) $ и $ H' = s(H) $. Так как $ N' = \ker \pi $, то $ N' $ нормальна в $ G $.
+	Имеем $ s \circ \pi = \Id_H $ по определению расщепляющейся точной последовательности групп.
+	Тогда $ H' \cap N' =  H' \cap \ker \pi = \{e\} $.
+	Для всякого элемента $ g \in G $ имеем $ \pi(s(\pi(g))) = \pi(g) $.
+	Положим $ h' = s(\pi(g)) $.
+	Тогда $ gh'^{-1} \in \ker \pi = N' $ и поэтому $ G = N'H' $.
+	
+	\textbf{[$ 2 \Rightarrow 3 $]}
+	
+	Пусть $ f \colon N \to N',  g \colon H \to H' $ --- изоморфизмы.
+	Зададим $ \varphi \colon H \to \Aut{N} $ по правилу $ \varphi \colon h \mapsto (n \mapsto f^{-1}(g(h)f(n)g(h)^{-1})) $.
+	Обозначим через $ K $ группу пар $ (n, h) \in N \times H $ с указанным правилом умножения.
+	Положим $ k \colon K \to G $ равным $ k \colon (n, h) \mapsto f(n)g(h) $.
+	По построению $ \varphi $ отображение $ k $ является гомоморфизмом:
+	$$ k\big((n_1,h_1)(n_2, h_2)\big) = k \big((n_1\varphi(h_1)(n_2), h_1h_2)\big)
+	= k \big((n_1f^{-1}(g(h_1)f(n_2)g(h_1)^{-1}) , h_1h_2) \big) = $$
+	$$ = f(n_1)g(h_1)f(n_2)g(h_1)^{-1}g(h_1h_2) = f(n_1)g(h_1)f(n_2)g(h_2)
+	= k\big((n_1, h_1) \big) k\big((n_2, h_2) \big). $$
+	
+	\textbf{[$ 3 \Rightarrow 1 $]}
+	
+	Пусть, как в доказательстве предыдущей импликации $ K $ --- группа пар $ (n, h) \in N \times H $ с указанным правилом умножения и $ k \colon K \to G $ --- изоморфизм.
+	
+	Положим $ i \colon N \to G $ равным $ i \colon n \mapsto k\big((n, e_H) \big) $
+	и $ \pi \colon G \to H $ равным $ \pi = \pr{H} \circ k^{-1} $,
+	где $ \pr{H} $ --- гомоморфизм проекции $ K $ на $ H $.
+	Как композиция инъекции и изоморфизма $ i $ инъективно,
+	аналогично $ \pi $ сюръективно как композиции изоморфизма и сюръекции.
+	По построению $ \Image i \subset \ker \pi $.
+	Если $ g \in \ker \pi $, то $ k^{-1} = (n, e_H) $ для некоторого $ n \in N $.
+	Тогда $ i(n) = g $, поэтому $ \ker \pi \subset \Image i $ и последовательность ниже точна:
+	$$ \begin{tikzcd}
+	1 \ar{r}{} & N \ar{r}[above]{i} & G \ar{r}[above]{\pi} & H \ar{r} & 1.
+	\end{tikzcd} $$
+	
+	Положим $ s \colon H \to G $ равным $ s \colon h \mapsto k\big((e_N, h) \big) $.
+	По построению $ \pi \circ s = \Id_H $ и последовательность расщепляется.
+	
+\end{proof}
+
+Для двух групп $ N $ и $ H $ группа $ G $, удовлетворяющая одному из условий теоремы называется \textit{полупрямым произведением} групп $ N $ и $ H $ и обозначается $ N \leftthreetimes_{\varphi} H $ или $ N \rtimes_{\varphi} H $,
+где $ \varphi \colon H \to \Aut{N} $ --- гомоморфизм из пункта 3. Если $ \varphi $ известно из контекста, то этот индекс опускается.

@@ -1,0 +1,193 @@
+% \documentclass[12pt]{article}
+\documentclass[12pt]{amsart}
+
+\pagestyle{plain}
+\usepackage[margin=3cm]{geometry} 
+
+\usepackage{amsmath,amssymb,amsfonts,enumerate,latexsym, amsthm,textcomp,wasysym}
+\usepackage{subfiles}
+
+% \usepackage{indentfirst}
+\usepackage[matrix, arrow, curve]{xy} % Для коммутативных диаграмм
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{verbatim}
+\makeatletter
+\def\@settitle{\begin{center}%
+    \baselineskip14\p@\relax
+    \bfseries
+    \large \@title
+  \end{center}%
+}
+\makeatother
+
+\usepackage{cancel}
+\usepackage{graphicx}
+% \graphicspath{{pictures/}}
+% \DeclareGraphicsExtensions{.pdf,.png,.jpg}
+%\usepackage{russian}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % commands for making comments
+\usepackage[dvipsnames]{xcolor}
+ \newcommand{\YP}[1]{\footnote{\textcolor{red}{YP: #1}}}
+ \newcommand{\yp}[1]{\leavevmode{\color{red}{#1}}}
+% {\textcolor{orange}{#1}} 
+ \usepackage[normalem]{ulem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{hyperref}
+\usepackage{tikz-cd} % Ещё для коммутативных диаграмм
+
+
+% \textheight=270mm
+% \textwidth=190mm
+% \voffset=-40mm
+% \hoffset=-35mm
+% \pagestyle{empty}
+% 
+% \\SLoppy
+
+
+\emergencystretch=5pt
+
+\newtheorem{theorem}{Теорема}
+\newtheorem*{definition}{Определение}
+\newtheorem{lemma}[theorem]{Лемма}
+\newtheorem{corollary}[theorem]{Следствие}
+
+\numberwithin{theorem}{subsection}
+
+\theoremstyle{definition}
+
+\newtheorem*{remark*}{Замечание}
+
+\newcommand{\Alt}{\mathfrak{A}}
+\newcommand{\Sym}{\mathfrak{S}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\Q}{\mathrm{Q}}
+\newcommand{\rC}{\mathrm{C}}
+\newcommand{\T}{\mathrm{T}}
+\newcommand{\rO}{\mathrm{O}}
+\newcommand{\I}{\mathrm{I}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\EE}{\mathbb{E}}
+
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calP}{\mathcal{P}}
+
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\SU}{\operatorname{SU}}
+\newcommand{\SO}{\operatorname{SO}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\projective}[1]{\mathrm{P^1}(#1)}
+\newcommand{\characteristic}{\operatorname{char}}
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\Image}{\mathrm{Im} \,}
+\newcommand{\Aut}[1]{\mathrm{Aut}(#1)}
+\newcommand{\pr}[1]{\mathrm{pr}_{#1}}
+\newcommand{\Rad}[1]{\mathrm{Rad}(#1)}
+\newcommand{\Ann}[1]{\mathrm{Ann}(#1)}
+\newcommand{\op}[1]{#1^{\mathrm{op}}}
+
+\newcommand{\pp}{\mathfrak{p}}
+\newcommand{\qq}{\mathfrak{q}}
+
+% Определение множества
+\newcommand{\defineset}[2]{\left\{
+	\left.
+	#1 \
+	\right\vert
+	#2
+	\right\}}
+
+% Кусочное определение функции
+\newcommand{\definefuntwo}[4]{
+	\begin{cases}
+		#1, & #2; \\
+		#3, & #4.
+	\end{cases}
+}
+
+
+% Цвета
+\definecolor{linkcolor}{HTML}{0000FF} % цвет ссылок
+\definecolor{urlcolor}{HTML}{0000FF} % цвет гиперссылок
+\definecolor{citecolor}{HTML}{0000FF} % цвет ссылки на статью
+\hypersetup{pdfstartview=FitH, linkcolor=linkcolor, urlcolor=urlcolor, citecolor=citecolor, colorlinks=true}
+% Пробелы, отступы и выделения
+\definecolor{todocolor}{HTML}{FF4500} % цвет todo
+\newcommand{\TODO}[1]{\textcolor{todocolor}{НУЖНО #1}}
+\renewcommand\labelenumi{\rm (\arabic{enumi})}
+\renewcommand\theenumi{\rm (\arabic{enumi})}
+
+\tikzset{
+	symbol/.style={
+		draw=none,
+		every to/.append style={
+			edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
+	}
+}
+
+
+\title{Заметки (ещё не)алгебраиста}
+\author{}
+
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{Теория групп}
+
+\subsection{Полупрямое произведение групп}
+
+\subfile{Semi-Direct_Product}
+
+\subsection{Теорема Жордана-Гёльдера}
+
+\subfile{Groups_Jordan_Holder}
+
+\subsection{Теорема Силова}
+
+\subfile{Sylow_Theorem}
+
+\section{Теория колец}
+
+\subsection{Радикал Джекобсона}
+
+\subfile{Jacobson_Radical}
+
+\subsection{Дедекинд-конечные кольца}
+
+\subfile{Dedekind-Finite}
+
+%\subsection{Локальные кольца}
+
+\section{Коммутативная алгебра}
+
+\subsection{Классификация конечно порождённых модулей над областями главных идеалов}
+
+\subfile{Finitely_Generated_Modules}
+
+
+
+
+
+\begin{thebibliography}{2}
+	
+
+\end{thebibliography}
+	
+	
+
+	
+\end{document}
