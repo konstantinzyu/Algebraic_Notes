@@ -1,0 +1,278 @@
+% \documentclass[12pt]{article}
+\documentclass[12pt]{amsart}
+
+\pagestyle{plain}
+\usepackage[margin=3cm]{geometry} 
+
+\usepackage{amsmath,amssymb,amsfonts,enumerate,latexsym,amsthm,textcomp,wasysym}
+\usepackage{hyperref}
+
+\usepackage{subfiles}
+
+%\usepackage{indentfirst}
+\usepackage{cancel}
+\usepackage{graphicx}
+% \graphicspath{{pictures/}}
+% \DeclareGraphicsExtensions{.pdf,.png,.jpg}
+%\usepackage{russian}
+
+% Colors
+\usepackage[dvipsnames]{xcolor}
+\definecolor{linkcolor}{HTML}{0000FF} % цвет ссылок
+\definecolor{urlcolor}{HTML}{0000FF} % цвет гиперссылок
+\definecolor{citecolor}{HTML}{0000FF} % цвет ссылки на статью
+\hypersetup{pdfstartview=FitH, linkcolor=linkcolor, urlcolor=urlcolor, citecolor=citecolor, colorlinks=true}
+% Пробелы, отступы и выделения
+\definecolor{todocolor}{HTML}{FF4500} % цвет todo
+\definecolor{defcolor}{HTML}{EE5D0F} % цвет определений
+\newcommand{\TODO}[1]{\textcolor{todocolor}{НУЖНО #1}}
+\renewcommand\labelenumi{\rm (\arabic{enumi})}
+\renewcommand\theenumi{\rm (\arabic{enumi})}
+
+% Pictures and diagrams
+\usepackage[matrix, arrow, curve]{xy} 
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usepackage{makecell}
+
+\tikzset{
+	symbol/.style={
+		draw=none,
+		every to/.append style={
+			edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
+	}
+}
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{verbatim}
+\makeatletter
+\def\@settitle{\begin{center}%
+    \baselineskip14\p@\relax
+    \bfseries
+    \large \@title
+  \end{center}%
+}
+\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % commands for making comments
+%\usepackage[dvipsnames]{xcolor}
+ \newcommand{\YP}[1]{\footnote{\textcolor{red}{YP: #1}}}
+ \newcommand{\yp}[1]{\leavevmode{\color{red}{#1}}}
+% {\textcolor{orange}{#1}} 
+ \usepackage[normalem]{ulem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \textheight=270mm
+% \textwidth=190mm
+% \voffset=-40mm
+% \hoffset=-35mm
+% \pagestyle{empty}
+% 
+% \\SLoppy
+
+\emergencystretch=5pt
+
+% Theorems
+
+\newtheorem{theorem}{Теорема}
+\newtheorem*{definition}{Определение}
+\newtheorem{lemma}[theorem]{Лемма}
+\newtheorem{corollary}[theorem]{Следствие}
+\newtheorem*{remark*}{Замечание}
+
+\numberwithin{theorem}{subsection}
+
+\theoremstyle{definition}
+
+% Environments
+
+\newenvironment{problem}[2][Problem name]{\indent \textcolor{#2}{\textbf{#1}} \indent}{\indent}
+\newenvironment{squarestatement}[1][Statement]{\indent \textbf{[#1]} \indent}
+{$ \hfill \lhd $ \indent}
+
+% New Commands
+
+% Set definition
+\newcommand{\defineset}[2]{\left\{
+	\left.
+	#1 \
+	\right\vert
+	#2
+	\right\}}
+
+\newcommand{\Alt}{\mathfrak{A}}
+\newcommand{\Sym}{\mathfrak{S}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\Q}{\mathrm{Q}}
+\newcommand{\rC}{\mathrm{C}}
+\newcommand{\T}{\mathrm{T}}
+\newcommand{\rO}{\mathrm{O}}
+\newcommand{\I}{\mathrm{I}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\EE}{\mathbb{E}}
+
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calP}{\mathcal{P}}
+
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\SU}{\operatorname{SU}}
+\newcommand{\SO}{\operatorname{SO}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\characteristic}{\operatorname{char}}
+
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\projective}[1]{\mathrm{P^1}(#1)}
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\Image}{\mathrm{Im} \,}
+\newcommand{\Aut}[1]{\mathrm{Aut}\left(#1\right)}
+\newcommand{\pr}[1]{\mathrm{pr}_{#1}}
+\newcommand{\Rad}[1]{\mathrm{Rad}\left(#1\right)}
+\newcommand{\Ann}[1]{\mathrm{Ann}\left(#1\right)}
+\newcommand{\op}[1]{#1^{\mathrm{op}}}
+\newcommand{\End}[2]{\mathrm{End}_{#2}\left(#1\right)}
+\newcommand{\Ab}{\mathrm{Ab}}
+
+\newcommand{\pp}{\mathfrak{p}}
+\newcommand{\qq}{\mathfrak{q}}
+
+
+
+% Кусочное определение функции
+\newcommand{\definefuntwo}[4]{
+	\begin{cases}
+		#1, & #2; \\
+		#3, & #4.
+	\end{cases}
+}
+
+\newcommand{\definefunthree}[6]{
+	\begin{cases}
+		#1, & #2; \\
+		#3, & #4; \\
+		#5, & #6.
+	\end{cases}
+}
+
+
+
+
+
+\title{Алгебра (материал дополняется)}
+\author{(Ещё не)алгебраист}
+
+\pagenumbering{arabic}
+
+% v_0.3.
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\newpage
+\section{Теория групп}
+
+\subsection{Теоремы Коши и Силова}
+
+\subfile{Sylow_Theorem}
+
+\subsection{Простые группы}
+
+\subfile{Simple_Groups}
+
+\subsection{Полупрямое произведение групп}
+
+\subfile{Semidirect_Product}
+
+\subsection{Теорема Жордана-Гёльдера}
+
+\subfile{Groups_Jordan_Holder}
+
+\newpage
+
+\section{Теория колец}
+
+\subsection{Радикал Джекобсона}
+
+\subfile{Jacobson_Radical}
+
+\subsection{Дедекинд-конечные кольца}
+
+\subfile{Dedekind-Finite}
+
+%\subsection{Локальные кольца}
+
+
+\newpage
+\section{Коммутативная алгебра}
+
+\subsection{Классификация конечно порождённых модулей над областями главных идеалов}
+
+\subfile{Finitely_Generated_Modules}
+
+
+\begin{thebibliography}{2}
+	
+	\bibitem{KargapolovMerzlyakov} М.И. Каргаполов, Ю.И. Мерзляков {\it Теория групп}, Наука, 1996.
+	
+	\bibitem{Algebra2} 
+
+\end{thebibliography}
+
+	
+\end{document}
+
+
+% --------------------------
+
+\section{Something}
+
+\begin{tikzpicture}
+\node[
+regular polygon,
+regular polygon sides=5,
+minimum width=35mm,
+] (PG) {}
+(PG.corner 1) node (PG1) {$G_1$}
+(PG.corner 2) node (PG2) {$G_2$}
+(PG.corner 3) node (PG3) {$\color{RedOrange} K$}
+(PG.corner 4) node (PG4) {$L$}
+(PG.corner 5) node (PG5) {$G_3$}
+;
+\foreach \S/\E in {
+	3/1, 4/1, 1/5,
+	2/1, 5/2, 3/2, 4/2,
+	3/5, 4/5%
+} {
+	\draw[->] (PG\S) -- (PG\E);
+}
+\draw[RedOrange, dashed, ->] (PG4) -- (PG3);
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node[
+regular polygon,
+regular polygon sides=3,
+minimum width=30mm,
+] (PG) {}
+(PG.corner 1) node (PG1) {$\color{blue} G_1$}
+(PG.corner 2) node (PG2) {$\color{blue} G_2$}
+(PG.corner 3) node (PG3) {$\color{blue} G_3$}
+;
+\foreach \S/\E in {
+	1/3, 2/1, 
+	3/2%
+} {
+	\draw[blue, ->] (PG\S) -- (PG\E);
+}
+\end{tikzpicture}
